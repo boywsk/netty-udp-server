@@ -57,6 +57,7 @@ public static enum SERVER_TYPE {
 2.1 用户汇报服务资源消息协议内容示例(JSON):
 
 2.1.1 汇报服务资源请求消息：
+
 {
     "requestType": 1,         //请求类型  1:汇报服务资源
     "reqReportMsg": {         
@@ -70,6 +71,7 @@ public static enum SERVER_TYPE {
 }
 
 2.1.2 汇报资源时服务端返回消息内容(客户端可以不处理,根据情况):
+
 {
     "type": 1,
     "ipPort": "127.0.0.1:88770",
