@@ -18,4 +18,6 @@ JAVA_OPTS="-Xms512m -Xmx1024m -Xmn512m"
 
 echo "start im-dispatcher port is: $port"
 
+# 加载环境变量
+source /etc/profile
 java  $JAVA_OPTS  -Djava.ext.dirs=$CLASS_PATH com.gome.im.dispatcher.server.DispatchServer $port >/dev/null 2>&1 &

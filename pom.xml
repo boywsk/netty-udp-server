@@ -152,6 +152,7 @@
         <profile>
             <id>dev</id>
             <properties>
+                <env>dev</env>
                 <config-file>env/dev_config.properties</config-file>
                 <zookeeper-path>/im-dispatcher</zookeeper-path>
                 <dispatcher-redis-key>dispatcher_servers_key</dispatcher-redis-key>
@@ -164,6 +165,7 @@
         <profile>
             <id>pre</id>
             <properties>
+                <env>pre</env>
                 <config-file>env/pre_config.properties</config-file>
                 <zookeeper-path>/im-dispatcher</zookeeper-path>
                 <dispatcher-redis-key>dispatcher_servers_key</dispatcher-redis-key>
@@ -176,6 +178,7 @@
         <profile>
             <id>pro</id>
             <properties>
+                <env>pro</env>
                 <config-file>env/pro_config.properties</config-file>
                 <zookeeper-path>/im-dispatcher</zookeeper-path>
                 <dispatcher-redis-key>dispatcher_servers_key</dispatcher-redis-key>
@@ -190,18 +193,20 @@
         <profile>
             <id>gomeplus-dev</id>
             <properties>
+                <env>dev</env>
                 <config-file>env/dev_config.properties</config-file>
                 <zookeeper-path>/gomeplus-im-dispatcher</zookeeper-path>
                 <dispatcher-redis-key>dispatcher_gomeplus_key</dispatcher-redis-key>
                 <log-file-name>/gomeo2o/logs/gomeplus-dispatcher-logs/gomeplus-dispatcher.log.%d{yyyy-MM-dd}</log-file-name>
             </properties>
-            <!--<activation>
-                <activeByDefault>true</activeByDefault> &lt;!&ndash; 默认开启 开发环境配置&ndash;&gt;
-            </activation>-->
+            <activation>
+                <activeByDefault>true</activeByDefault> <!-- 默认开启 开发环境配置-->
+            </activation>
         </profile>
         <profile>
             <id>gomeplus-pre</id>
             <properties>
+                <env>pre</env>
                 <config-file>env/pre_config.properties</config-file>
                 <zookeeper-path>/gomeplus-im-dispatcher</zookeeper-path>
                 <dispatcher-redis-key>dispatcher_gomeplus_key</dispatcher-redis-key>
@@ -214,14 +219,15 @@
         <profile>
             <id>gomeplus-pro</id>
             <properties>
+                <env>pro</env>
                 <config-file>env/pro_config.properties</config-file>
                 <zookeeper-path>/gomeplus-im-dispatcher</zookeeper-path>
                 <dispatcher-redis-key>dispatcher_gomeplus_key</dispatcher-redis-key>
                 <log-file-name>/gomeo2o/logs/gomeplus-dispatcher-logs/gomeplus-dispatcher.log.%d{yyyy-MM-dd}</log-file-name>
             </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault> <!-- 默认开启 开发环境配置-->
-            </activation>
+            <!--<activation>
+                <activeByDefault>true</activeByDefault> &lt;!&ndash; 默认开启 开发环境配置&ndash;&gt;
+            </activation>-->
         </profile>
     </profiles>
 

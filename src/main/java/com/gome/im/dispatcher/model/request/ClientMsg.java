@@ -1,5 +1,8 @@
 package com.gome.im.dispatcher.model.request;
 
+import com.gome.im.dispatcher.model.request.rpc.ReqRpcReportMsg;
+import com.gome.im.dispatcher.model.request.rpc.ReqRpcServersMsg;
+
 import java.io.Serializable;
 
 /**
@@ -11,6 +14,10 @@ public class ClientMsg implements Serializable {
     private ReqReportMsg reqReportMsg;
 
     private ReqServersMsg reqServersMsg;
+
+    private ReqRpcReportMsg reqRpcReportMsg;
+
+    private ReqRpcServersMsg reqRpcServersMsg;
 
     public int getRequestType() {
         return requestType;
@@ -34,5 +41,21 @@ public class ClientMsg implements Serializable {
 
     public void setReqReportMsg(ReqReportMsg reqReportMsg) {
         this.reqReportMsg = reqReportMsg;
+    }
+
+    public ReqRpcReportMsg getReqRpcReportMsg() {
+        return reqRpcReportMsg;
+    }
+
+    public void setReqRpcReportMsg(ReqRpcReportMsg reqRpcReportMsg) {
+        this.reqRpcReportMsg = reqRpcReportMsg;
+    }
+
+    public ReqRpcServersMsg getReqRpcServersMsg() {
+        return reqRpcServersMsg;
+    }
+
+    public void setReqRpcServersMsg(ReqRpcServersMsg reqRpcServersMsg) {
+        this.reqRpcServersMsg = reqRpcServersMsg;
     }
 }

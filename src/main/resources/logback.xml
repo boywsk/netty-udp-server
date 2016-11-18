@@ -11,8 +11,9 @@
 		<!-- <file>/home/jerry/log/tomcat/api-rest.log</file> -->
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover -->
-			<fileNamePattern>/gomeo2o/logs/im-dispatcher-logs/im-dispatcher.log.%d{yyyy-MM-dd}</fileNamePattern>
-			<!-- <fileNamePattern>/data/logs/im-api.log.%d{yyyy-MM-dd-HH}</fileNamePattern> -->
+			<!--<fileNamePattern>/gomeo2o/logs/im-dispatcher-logs/im-dispatcher.log.%d{yyyy-MM-dd}</fileNamePattern>-->
+			<!--<fileNamePattern>/gomeo2o/logs/gomeplus-dispatcher-logs/im-dispatcher.log.%d{yyyy-MM-dd}</fileNamePattern>-->
+			<fileNamePattern>${log-file-name}</fileNamePattern>
 		</rollingPolicy>
 		<encoder>
 			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-4relative [%thread] [%-5level] %logger{35} - %msg%n</pattern>

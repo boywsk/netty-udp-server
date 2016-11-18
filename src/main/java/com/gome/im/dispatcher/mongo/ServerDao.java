@@ -1,5 +1,6 @@
 package com.gome.im.dispatcher.mongo;
 
+import com.gome.im.dispatcher.model.RpcServerModel;
 import com.gome.im.dispatcher.model.ServerModel;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
@@ -34,6 +35,29 @@ public class ServerDao extends BaseDao {
             coll.findOneAndUpdate(filter, new Document("$set", doc), new FindOneAndUpdateOptions().upsert(true));
         } catch (Exception e) {
             log.error("mongodb saveOrUpdateServer error:{},server ipPort:{},type:{}", e, server.getIpPort(), server.getType());
+        }
+    }
+
+    public void saveOrUpdateRPCServer(RpcServerModel server) {
+        try {
+            MongoCollection<Document> coll = this.getCollection(dbName, COLL_NAME);
+            Document doc = new Document();
+            if (server.getType() > 0) {
+                doc.put("type", server.getType());
+            }
+            if (server.getCmd() != null) {
+                doc.put("cmd", server.getCmd());
+            }
+            if (server.getUpdateTime() > 0) {
+                doc.put("updateTime", server.getUpdateTime());
+            }
+            doc.put("status", server.getStatus());
+            doc.put("weight",server.getWeight());
+
+            Bson filter = Filters.eq("ipPort", server.getIpPort());
+            coll.findOneAndUpdate(filter, new Document("$set", doc), new FindOneAndUpdateOptions().upsert(true));
+        } catch (Exception e) {
+            log.error("mongodb saveOrUpdateRPCServer error:{},server ipPort:{},type:{}", e, server.getIpPort(), server.getType());
         }
     }
 

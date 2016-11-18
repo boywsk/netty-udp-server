@@ -23,12 +23,13 @@ public class Test {
             }
 
             InetAddress address = InetAddress.getByName("10.125.72.89");  //服务器地址  10.125.3.61   10.69.16.92
-            int port = 8866;  //服务器的端口号
+            int port = 8866;  //服务器的端口号  国美+ 8877   企业办公 8866
             //创建发送方的数据报信息
             DatagramPacket dataGramPacket = new DatagramPacket(msg.getBytes(), msg.getBytes().length, address, port);
 
             DatagramSocket socket = new DatagramSocket();  //创建套接字
             socket.send(dataGramPacket);  //通过套接字发送数据
+            socket.setSoTimeout(5000);
 
             //接收服务器反馈数据
             byte[] buf = new byte[2048];

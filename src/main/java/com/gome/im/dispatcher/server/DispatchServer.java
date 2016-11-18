@@ -1,5 +1,6 @@
 package com.gome.im.dispatcher.server;
 
+import com.gome.im.dispatcher.global.Global;
 import com.gome.im.dispatcher.handler.UdpServerHandler;
 import com.gome.im.dispatcher.service.DispatcherService;
 import com.gome.im.dispatcher.utils.ZKClient;
@@ -81,8 +82,15 @@ public class DispatchServer {
         DispatchServer server = new DispatchServer(serverPort);
         server.init();
 
-        //初始化ZK,并将服务地址发布到ZK根节点 "/im-dispatcher" 的子节点
-        ZKClient.getInstance().init(serverPort);
+
+        final int finalServerPort = serverPort;
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                //初始化ZK,并将服务地址发布到ZK根节点 "/im-dispatcher" 的子节点
+                ZKClient.getInstance().init(Global.ZK_IP_PORT,finalServerPort,Global.ZK_PATH);
+            }
+        });
 
         //初始化客户端服务状态汇报检测
         DispatcherService.getInstance().init();

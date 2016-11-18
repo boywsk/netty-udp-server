@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class RspServersMsg implements Serializable{
     private int type;  //服务类型
-    private List<String> ipPort;  //服务地址
+//    private List<String> ipPort;  //服务地址
 
     private List<RspServersByCmdMsg> rspServers;
 
@@ -22,13 +22,13 @@ public class RspServersMsg implements Serializable{
         this.type = type;
     }
 
-    public List<String> getIpPort() {
-        return ipPort;
-    }
-
-    public void setIpPort(List<String> ipPort) {
-        this.ipPort = ipPort;
-    }
+//    public List<String> getIpPort() {
+//        return ipPort;
+//    }
+//
+//    public void setIpPort(List<String> ipPort) {
+//        this.ipPort = ipPort;
+//    }
 
     public List<RspServersByCmdMsg> getRspServers() {
         return rspServers;

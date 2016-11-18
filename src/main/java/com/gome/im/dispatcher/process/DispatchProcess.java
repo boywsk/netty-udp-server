@@ -52,7 +52,11 @@ public class DispatchProcess {
     public void process(ChannelHandlerContext ctx, DatagramPacket packet, ClientMsg msg) {
         int requestType = msg.getRequestType();
         DispatchProcess process = PROCESS_CLASS_MAP.get(requestType);
-        process.process(ctx, packet, msg);
+        if(process != null){
+            process.process(ctx, packet, msg);
+        }else{
+            LOG.error("未知的请求类型:{}", requestType);
+        }
     }
 
     public static void main(String[] args) {

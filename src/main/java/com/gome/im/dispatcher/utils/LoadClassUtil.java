@@ -16,7 +16,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 /**
- * Created by wangshikai on 2016/7/28.
+ * 类加载
  */
 public class LoadClassUtil {
     private static Logger log = LoggerFactory.getLogger(LoadClassUtil.class);
